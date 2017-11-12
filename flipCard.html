@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<title>Flip Animation</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!--
+<link href="https://fonts.googleapis.com/css?family=Poppins:300" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="stylesheets/bootstrap.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+-->
+  
+<!--
+<link rel="stylesheet" type="text/css" href="stylesheets/style.css" />
+<link rel="stylesheet" type="text/css" href="stylesheets/media.css" />
+-->
+  
+<style>
+
+  /*  flip animation adapted from https://davidwalsh.name/css-flip*/
+  /* entire container, keeps perspective */
+  .flip-container {
+      perspective: 1000px;
+  }
+
+  .flip-container, .front {
+      width: 320px;
+      height: 480px;
+  }
+
+  .flipper {
+      transform-style: preserve-3d;
+      position: relative;
+  }
+
+  .front {
+      background-color: red;
+      position: absolute;
+      top: 0;
+      left: 0;
+  }
+
+  /* flip card when show answer class is added*/
+  .front.showA {
+      transition: 0.6s;
+      transform: rotateY(-180deg);    
+      background-color: yellow;
+  }
+/*  flip text back so it's readable*/
+  .front.showA .myText {
+      transition: 0.6s;
+      transform: rotateY(180deg);
+  }
+
+  
+  
+  /*  from w3Schools*/
+  /* The animation code */
+  /*
+  @keyframes example {
+      0%   {background-color: red;}
+      25%  {background-color: yellow;}
+      50%  {background-color: blue;}
+      100% {background-color: green;}
+  }
+
+  */
+
+  /* The element to apply the animation to */
+  /*
+  div {
+      width: 100px;
+      height: 100px;
+      background-color: red;
+      animation-name: example;
+      animation-duration: 4s;
+  }
+  */
+  
+  
+</style>
+
+<body id="main" style="margin:150px;">
+
+  <div class="flip-container" onclick="addClass('thisJunk','showA')">
+	<div class="flipper">
+		<div class="front" id="thisJunk">
+          <p>this will get reversed</p>
+          <div class="myText" style="margin:auto;padding:8px;width:80%;background-color:blue;">
+            <p>I don't want this text to get reversed</p>
+          </div>
+		</div>
+	</div>
+</div>
+  
+    
+  
+  
+<!--
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+-->
+
+  
+
+<script>
+  
+  function addClass(el, cls) {
+    document.getElementById(el).classList.add(cls);
+  }
+</script>
+  
+</body>
+</html>

@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="icon" type="image/ico" href="images/favicon.ico">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Short+Stack' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"/> 
+    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.0/themes/smoothness/jquery-ui.css" />
+    <link rel="stylesheet" href="animateSamples.css">
+    
+    <title>Sample Animation</title>
+    <meta name="description=" content="practice only">
+</head>
+<body>
+<div class="backgroundImg">    
+
+  <!--Animated start screens prompt user for name & level-->
+  <div class="getStarted cf" id="startScreen">
+      <div class="start2">
+          <h1>Animation Sampler</h1>
+      </div>
+  </div>
+  
+  <div class="container">
+    <div class="row justify-content-around align-items-center">
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
+        <div class="gridBox">
+          <button type="button" id="myModal">Bubbles</button>
+        </div>
+      </div>
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
+        <div class="gridBox">
+          <button type="button">Sample 2</button>
+        </div>
+      </div>
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
+        <div class="gridBox">
+          <button type="button">Sample 3</button>
+        </div>
+      </div>
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
+        <div class="gridBox">
+          <button type="button">Sample 4</button>
+        </div>
+      </div>
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
+        <div class="gridBox">
+          <button type="button">Sample 5</button>
+        </div>
+      </div>
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
+        <div class="gridBox">
+          <button type="button">Sample 6</button>
+        </div>
+      </div>
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
+        <div class="gridBox">
+          <button type="button">Sample 7</button>
+        </div>
+      </div>
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
+        <div class="gridBox">
+          <button type="button">Sample 8</button>
+        </div>
+      </div>
+    </div>  
+  </div>
+    
+</div>
+
+<!------------------------------------------------------------------------------------  
+This section is for BUBBLE animation. Includes overlay + bubbles + modal with message
+-------------------------------------------------------------------------------------->
+  
+<!-- overlay brought to front with z-index when needed -->
+<div class="overlay" id="cover"></div>
+    
+<!-- animated bubbles brought to front with z-index when user finishes test -->
+<div id="bubbleContainer" class="animBubbles"></div>
+
+<!-- This div hidden except when results are displayed for a timed test-->
+<div class="test hidden-xs-up" id="topicTestResults">
+    <div class="closeDiv" title="Close"><i id="closeTestResults" class="fa fa-times"></i></div>
+    <h4 id="test_user">Message goes here...</h4>
+    <br>
+    <h3 id="test_correct">more info...</h3>
+    <br>
+    <h2 id="test_moveUp">Highlighted note...</h2>
+</div>
+
+<!------------------------------------------------------------------------------------  
+This section is for SAMPLE 2 animation. Includes...
+-------------------------------------------------------------------------------------->
+
+  
+  
+<!------------------------------------------------------------------------------------  
+This section is for SAMPLE 3 animation. Includes...
+-------------------------------------------------------------------------------------->
+
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.0/jquery-ui.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
+<script src="bubbleScript.js"></script>
+
+</body>
+</html>

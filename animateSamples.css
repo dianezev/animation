@@ -1,0 +1,963 @@
+/*******************************************************
+ * Bubbles
+ ******************************************************/
+
+@-webkit-keyframes bubbles {
+    0% {
+        opacity: 0; 
+        -webkit-transform: scale(.1);
+    }
+    100% { opacity: .8; }
+}
+@-moz-keyframes bubbles {
+    0% {
+        opacity: 0; 
+        -moz-transform: scale(.1);
+    }
+    100% { opacity: .8; }
+}
+@-o-keyframes bubbles {
+    0% {
+        opacity: 0; 
+        -o-transform: scale(.1);
+    }
+    100% { opacity: .8; }
+}
+@keyframes bubbles {
+    0% {
+        opacity: 0; 
+        transform: scale(.1);
+    }
+    100% { opacity: .8; }
+}
+
+
+
+
+
+/*TBD: cleanup - below here taken from math facts by Diane Zevenbergen - only some needed for  animation examples*/
+/********************************************************
+ * Styling for main sampler page
+ ********************************************************/
+
+.gridBox {
+  margin:10%;
+}
+.gridBox button {
+  color: white;
+  background-color: #2e2e38;
+  width: 100%;
+  padding: 4%;
+  border-radius: 5px;
+  border: 1px solid white;
+}
+
+/*TBD:
+ *    Cleanup based on CSSLint warnings 
+ *    Also note CSSLint errors related to vmin - but this measurement seems to be working fine
+ *    Browser-specific improvements needed
+ */
+
+/*
+
+/****************************
+*****************************
+1. Universal/General Styles
+*****************************
+****************************/
+
+/*-------TAGS--------*/
+
+* {
+    box-sizing: border-box;
+    margin:0;
+    padding:0;
+}
+/* tympanus explains this needed for overlay...*/
+body { 
+    position: relative;
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+}
+body, html { height: 100%; }
+body, button, .getStarted input, .btn, .sidebar, .scores {
+    font-family: 'Short Stack', cursive;
+}
+button {
+  color: white;
+}
+p { margin:0; }
+/* TBD: Recommended alternative from CSS tricks
+html { box-sizing: border-box; }
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+*/
+
+/****************************
+*****************************
+2. Background/Overlay Styles
+*****************************
+****************************/
+
+/*-------CLASSES--------*/
+.animBubbles { z-index: 25; }
+.backdrop {
+    background-size: 100%;
+    overflow: hidden;
+    position: relative;
+    left: 0;
+    right: 0;
+    top: 0;
+}
+/*
+.frameApp {
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    overflow: hidden;
+}
+.frameApp nav {
+    position: relative;
+    z-index: 1;
+}
+nav.subLevels {
+    border-top: 1px solid lightgray;
+    display: table;
+    padding-left: 0;
+}
+*/
+.backgroundImg {
+    left: 0; 
+    min-height: 100%; 
+    min-width: 100%; 
+    position: absolute;
+    overflow-y: scroll;
+    top: 0; 
+    bottom: 0;
+    padding-top: 5vh;
+}
+.backgroundShade {
+    background-color: #090A3B;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+/*Used when displaying error for LAST problem on screen*/
+/*.bringToFront { z-index: 10 !important; }*/
+/*Used when displaying results for a timed test*/
+.coverAll {
+    background-color: rgba(0,0,0,0.7);
+    z-index: 15 !important;
+}
+.overlay {
+    background-color: rgba(0,0,0,0.6);
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: -10;
+}
+.track {
+    top: .2em;
+    position:fixed;
+    left: 1em;
+}
+
+/********************************
+*********************************
+3. Colors
+*********************************
+********************************/
+
+/*--------GENERAL COLORS--------*/
+.backgroundImg {
+    background-color: #121824;
+}
+.about li {
+    background-color: #121824;
+}
+.test, .confirm, .countdown {
+    background-color: #121824;
+    border: 1px solid #d0d0e7;
+}
+.backdrop, .timeHeader {
+    background-color: #2e2e38;
+}
+.submenu li.active, .submenu li:hover {
+    border-color: white;
+}
+.submenu li.active > a, .submenu li:hover a, .activeSidebar a, .activeSidebar span i, .activeSidebar .chevron, .about a:hover {
+    color: white;
+}
+.about li p a {
+    color: #536fc0;
+}
+.about li p a:hover {
+    color: #678aee;
+    text-decoration: underline;
+}
+.sidebar a, .sidebar span i, .credit, .track, .chalk a, .chalk, .timeHeader i, .about a {
+    color: #79798b;
+}
+.timeHeader {
+    color: white;
+}
+.sidebar li:hover a, .sidebar li:hover i, .about p {
+    color: #d0d0e7;
+}
+
+.activeSidebar a, .activeSidebar span i, .activeSidebar .chevron {
+    color: white !important;
+}
+.getStarted h1, .getStarted h6 {
+    color: #69697d;
+}
+.start2 input:focus, .start2 button, .start2 input {
+    background-color: #2e2e38;
+}
+.start2 input:hover, .start2 button:hover {
+    background-color: #42424f;
+}
+
+/*----ADDITION----*/
+/*
+.addDef a { color: #465DA1; }
+.addDef a:hover > p, .addColor > a > p, .addColor, .addColor input {
+    color:#536fc0;
+}
+.addColor a p, .addColor, .addColor input, .menu li.addColor {
+    border-color: #536fc0;
+}
+.subLevels.addColor li.active {
+    background-color:#536fc0;
+}
+*/
+
+/*----SUBTRACTION----*/
+/*
+.subtractDef a { color:#9E1342 }
+.subtractDef a:hover > p, .subtractColor > a > p, .subtractColor, .subtractColor input {
+    color:#C02A5C;
+}
+.subtractColor a p, .subtractColor, .subtractColor input, .menu li.subtractColor {
+    border-color: #C02A5C;
+}
+.subLevels.subtractColor li.active {
+    background-color:#C02A5C;
+}
+*/
+
+/*----MULTIPLICATION----*/
+/*
+.multiplyDef a { color:#21985F; }
+.multiplyDef a:hover > p, .multiplyColor > a > p, .multiplyColor, .multiplyColor input {
+    color:#3CA673;
+}
+.multiplyColor a p, .multiplyColor, .multiplyColor input, .menu li.multiplyColor {
+    border-color: #3CA673;
+}
+.subLevels.multiplyColor li.active {
+    background-color:#3CA673;
+}
+*/
+
+/*----DIVISION----*/
+/*
+.divideDef a { color:#612893; }
+.divideDef a:hover > p, .divideColor > a > p, .divideColor, .divideColor input {
+    color:#7441A0;
+}
+.divideColor a p, .divideColor, .divideColor input, .menu li.divideColor {
+    border-color: #7441A0;
+}
+.subLevels.divideColor li.active {
+    background-color:#7441A0;
+}
+*/
+
+/****************************
+*****************************
+4. Start Screen Styles
+*****************************
+****************************/
+
+/*-------CLASSES--------*/
+.getStarted {
+    color: white;
+    height: auto;
+}
+.getStarted h1, .getStarted h6 {
+    line-height: .8;
+    text-align: center;
+}
+.getStarted h1 {
+    font-weight: 800;
+    margin-top: 0;
+    height: .9em;
+}
+
+.getStarted h6 {
+    font-weight: 300;
+}
+/*
+.rotateThisFadeOut {
+    -webkit-animation: shadeInOut 2s 4, roll .5s 16;
+    -moz-animation: shadeInOut 2s 4, roll .5s 16;
+    -o-animation: shadeInOut 2s 4, roll .5s 16;
+    animation: shadeInOut 2s 4, roll .5s 16;
+}
+.fadeThisInAndOut {
+    -webkit-animation: shadeInOut 2s 4;
+    -moz-animation: shadeInOut 2s 4;
+    -o-animation: shadeInOut 2s 4;
+    animation: shadeInOut 2s 4;
+}
+.startOptions {
+    -webkit-animation: shadeIn 2s 1;
+    -moz-animation: shadeIn 2s 1;
+    -o-animation: shadeIn 2s 1;
+    animation: shadeIn 2s 1;
+}
+*/
+
+.start2 {
+    margin: 0 auto;
+    width: 80%;
+}
+.start2 button {
+    display: block;
+    float: left;
+    width: 32%;
+    padding: 0;
+    border: none;
+}
+.start2 button:hover {
+    -webkit-animation: tinyRoll .25s 2;
+    -moz-animation: tinyRoll .25s 2;
+    -o-animation: tinyRoll .25s 2;
+    animation: tinyRoll .25s 2;
+}
+.start2 button:nth-of-type(2) {
+    margin-left: 2%;
+}
+.start2 button:nth-of-type(3) {
+    margin-left: 2%;
+}
+.start2 h1 span:first-child {
+    margin-left: 0;
+}
+.start2 h3 {
+    width: 100%;
+    text-align: center;
+}
+.start2 input {
+    border: none;
+    color: white;
+    line-height: 1.5;
+    width: 100%;
+}
+
+
+/****************************
+*****************************
+5. Main Menu Styles
+*****************************
+****************************/
+
+/*-------TAGS--------*/
+
+/*
+nav > ul > li {
+    display: block;
+    font-weight: bold;
+}
+ul {
+    list-style: none;
+    margin: 0 auto;
+    padding: 0;
+}
+*/
+
+/*-------CLASSES--------*/
+/*
+.menu {
+    line-height: 70%;
+    position: relative;
+    width: 100%;
+}
+.menu a{
+    display:block;
+    margin: 0;
+    padding:0;
+    text-decoration: none;
+}
+.menu li {
+    border: 2px dotted transparent;
+    float: left;
+    position: relative;
+    text-align: center;
+    width: 25%;
+}
+.menu li:hover p {
+    -webkit-animation: roll .25s 2;
+    -moz-animation: roll .25s 2;
+    -o-animation: roll .25s 2;
+    animation: roll .25s 2;
+}
+.menu p {
+    margin: 0;
+    overflow: hidden;    
+    padding-bottom: .06em;
+}
+*/
+
+/****************************
+*****************************
+6. Submenu Styles
+*****************************
+****************************/
+
+/*-------TAGS--------*/
+/*
+li li {
+    position: relative;
+    font-size: 15px;
+    width: 100%;
+    text-align: center;
+    border:solid #8d908f;
+    border-width: 3px 0 0 0;
+}
+nav li:hover > ul {
+    opacity: 1;
+    top: 107px;    
+    height: auto;
+    overflow: visible;
+}
+
+nav {opacity: 1;}
+nav li li { padding: 5px 0; }
+*/
+
+/*-------CLASSES--------*/
+/*
+.currentLevel { color: white; }
+.submenu {
+    align-content: stretch;
+    border:none;
+    border-width: 3px 0 0 0;
+    display:table-row;
+    margin-top: 5%;
+    padding: 0;
+    position: relative;
+    text-align: left;
+}
+.submenu li {
+    display: table-cell;
+    padding: .1em 0;
+    position: relative;
+    text-align: center;
+    vertical-align: middle;
+    border: 1px dotted transparent;
+}
+.submenu li a { text-decoration: none; }
+.submenu li:hover p {
+    -webkit-animation: roll .25s 2;
+    -moz-animation: roll .25s 2;
+    -o-animation: roll .25s 2;
+    animation: roll .25s 2;
+}
+*/
+
+/****************************
+*****************************
+7. Math Facts Styles
+*****************************
+****************************/
+
+/*-------TAGS--------*/
+/*
+input, answer_region p {
+    width: 180px;
+    font-size: 25px;
+}
+*/
+
+/*-----CLASSES------*/
+/*
+.answerBox { border-color: #c7c6c6; }
+.answerBox.error {
+    border-color: #f8f88a;
+    border-style: dashed;
+    color: #f8f88a;
+}
+.answer_region {
+    float: left;    
+    position: relative;
+}
+.answer_region i {
+    font-size: 36px;
+    left: 0;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+}
+*/
+/*used to force the LAST problem above overlay (to highlight error)*/
+/*
+.answer_region:last-child input, .answer_region:last-child p {
+    position: relative;
+    z-index: 11;
+}
+.answer_region input, .answer_region p {
+    background-color: transparent;
+    border: none;
+    font-size: inherit;
+    padding: 0 8px 0 0;
+    text-align: right;
+    width: 100%;
+}
+.bottom_el { width: 80%; }
+.bottom_el, .operator { border-bottom: 2px solid; }
+.bottom_el, .top_el {text-align: right; }
+.bottom_el, .top_el {
+    float: right;
+    height: auto;
+    padding-right: 6px;
+}
+.btn {
+    background: transparent;
+    border-radius: 0;
+    color: #ffffff;
+}
+.btn:hover, .btn:focus {
+    background: #309ddd;
+    background-image: -webkit-linear-gradient(top, #309ddd, #79c9f7);
+    background-image: -moz-linear-gradient(top, #309ddd, #79c9f7);
+    background-image: -ms-linear-gradient(top, #309ddd, #79c9f7);
+    background-image: -o-linear-gradient(top, #309ddd, #79c9f7);
+    background-image: linear-gradient(to bottom, #309ddd, #79c9f7);
+    color: white;
+}
+.fadeInOutOnce {
+    -webkit-animation: steadyInOut 1s 1;
+    -moz-animation: steadyInOut 1s 1;
+    -o-animation: steadyInOut 1s 1;
+    animation: steadyInOut 1s 1;
+}
+.hide { display: none; }
+.invisible { visibility: hidden; }
+.numberButtons { padding: 0 1px 0 1px; }
+.numberButtons .btn-group .btn {
+    border-top: dotted 1px white;
+    border-right: dotted 1px white;
+    border-bottom: none;
+    border-left: none;
+}
+.numberButtons .btn-group:first-child {
+    border-left: dotted 1px white;
+}
+.numberButtons:last-child {
+    border-bottom: dotted 1px white;
+}
+.operator {
+    float: left;
+    padding-left: 15%;
+    width: 20%;
+}
+.page {
+    min-height: 100%;
+    overflow: hidden;
+}
+.subLevels {
+    border-top: 1px solid lightgray;
+}
+.problem {
+    float: left;
+    margin-bottom: .04em;
+}
+*/
+/*used to force the LAST problem above overlay (to highlight error)*/
+/*
+.problem:last-child p {
+    position: relative;
+    z-index: 11;
+}
+.timeHeader h2 {
+    font-weight: 600;
+    margin: auto auto;
+    text-align: center;
+    height: 100%;
+}
+.timeHeader h2 p {
+    height: 50%;
+    width: 100%;
+    margin: auto;
+    padding: 3.5vh;
+    text-align: center; 
+}
+.timeHeader {
+    border: 1px dotted white;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 3;
+}
+.timerOn {
+    height: 100%;
+    text-align: center;
+    width: 20%;
+}
+.timerOn:first-of-type { float: left; }
+.timerOn i {
+    margin: 25% 10%;
+}
+.top_el {
+    width: 100%;
+}
+.whiteboard {
+    line-height: 1.2;
+    width: 100%;
+}
+.whiteboard p, input {
+    font-family: 'Open Sans Light', 'Open Sans', monospace;
+    font-weight: 600;
+}
+*/
+
+/****************************
+*****************************
+8. Timed Test Results Styles
+*****************************
+****************************/
+
+/*-------CLASSES--------*/
+.blob {
+    border-radius: 100%;
+    opacity: .8;
+    position: fixed;
+    z-index: 16;
+}
+.countdown h1 { font-size: 1000%; }
+.errorTable { height: 35vh; }
+.errorTable tbody, .errorTable thead { width: 100%; }
+.errorTable thead { height: 10%; }
+.errorTable td { font-size: 90%; }
+.errorTable tbody {
+    border: 1px solid white;
+    float: left;
+    height: 100%;
+    overflow: auto;
+    padding-right: 18px;
+}
+.fadeInAndOut {
+    -webkit-animation: steadyInOut 10s 30;
+    -moz-animation: steadyInOut 10s 30;
+    -o-animation: steadyInOut 10s 30;
+    animation: steadyInOut 10s 30;
+}
+.test, .confirm, .countdown {
+    font-weight: 400;
+    font-size: 100%;
+    left: 50%;
+    margin: auto;
+/*    max-height: 90vmin;*/
+    padding: 1em;
+    position:absolute;
+    text-align: center;
+    top: 50%;
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -ms-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+    z-index: 17;
+}
+.test, .confirm, .scores, .countdown { color:rgba(255, 255, 255, .8); }
+.test button, .confirm button {
+    background-color:#cacaca;
+    color: #5f5f5f;
+    display: inline-block;
+    font-size: 200%;
+    margin: 1em .2em;
+    padding: .4em 1em;
+}
+.test button:hover, .confirm button:hover { color: #171717; }
+.test button:focus, .confirm button:focus { border: 2px solid white; }
+.test h3, .test h2 {
+    font-weight: 800;
+    text-align: center;
+}
+.test h2 { color:deeppink; }
+.test h4, .confirm h4 {
+    text-align: center;
+}
+.test h3 { padding-top: 1em; }
+.test span { color: #6ad7fa; }
+.test h4:first-of-type, .confirm h2 { margin-top: 35px; }
+.vertScroll { overflow:hidden; }
+.wobble {
+    -webkit-animation: tinyRoll 1s 150;
+    -moz-animation: tinyRoll 1s 150;
+    -o-animation: tinyRoll 1s 150;
+    animation: tinyRoll 1s 150;
+}
+
+/****************************
+*****************************
+9. Overall Scores Styles
+*****************************
+****************************/
+
+/*-------TAGS--------*/
+/*
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+tbody:first-child, thead + tbody { border-top: 4px double; }
+td {
+    text-align: left;
+    vertical-align: top;
+    white-space: nowrap;
+}
+td span {
+    color: white;
+    font-style: italic;
+    font-weight:bolder;
+    text-align: left;
+}
+th {
+    font-size: 125%;
+    font-weight: bold;
+    text-align: center;
+}
+thead { padding: 1px; }
+tr.newLevel { border-top: 1px solid white; }
+tr.newLevel, tbody.addColor, tbody.subtractColor, tbody.multiplyColor, tbody.divideColor {
+    border-color: lightgray;
+}
+*/
+
+/*-------CLASSES--------*/
+/*
+.forceScroll {
+    border: 1px solid darkgray;
+    height: 36vh;
+    overflow-y: auto;
+}
+.scores {
+    font-weight: 300;
+    height: 90%;
+    padding: 2em 1em 1em 1em;
+    position: relative;
+}
+.scores a {
+    color: lightgray;
+    float: right;
+    margin: auto .5em;
+}
+.scores a:hover { color: white; }
+.scores h3 {
+    margin-bottom: .5em;
+    margin-top: .3em;
+    text-align: left;
+}
+.scores h4 { margin-top: .2em; }
+.scores td:nth-child(1) { 
+    font-weight: bold;
+    text-align: left;
+}
+.scores td:nth-child(2) { 
+    text-align: right;
+}
+.scores td:nth-child(3) {
+    text-align: left;
+}
+.scores td:nth-child(4) {
+    text-align: center;
+}
+*/
+
+/****************************
+*****************************
+10. About Styles
+*****************************
+****************************/
+
+/*-------CLASSES--------*/
+/*
+.about {
+    font-weight: 200;
+    overflow-y: auto;
+    position:relative;
+}
+.about a {
+    text-decoration: none;
+}
+.about li {
+    list-style: none;
+    position: relative;
+    text-align: center;
+}
+.about p {
+    line-height: 1.2;
+    padding-right:.5em;
+    padding-left: .5em;
+    text-align: left;
+}
+.about li span.chalk {
+    font-size: 120%;
+}
+.smallFont { font-size: 15px; }
+*/
+
+/****************************
+*****************************
+11. Sidebar Menu Styles
+*****************************
+****************************/
+
+/*-------CLASSES--------*/
+/*
+.sidebar {
+    background-color: transparent;
+    float: left;
+}
+.credit {
+    text-align:center;
+    width: 100%;
+    bottom: 0;
+    position: absolute;
+}
+.credit span {
+    width: 100%;
+}
+.sidebar .activeSidebar {
+    border: none;
+}
+.sidebar a {
+    align-items: center;
+    font-size: 16px;
+    padding: 0;
+    height: 100%;
+    margin: auto;
+    text-decoration: none;
+}
+.sidebar i { 
+    align-items: center;
+}
+.sidebar label { 
+    text-align: center;
+    width: 100%;
+    vertical-align: middle;
+}
+.sidebar li {
+    border: none;
+    padding: 0;
+}
+.sidebar li:hover > a > i, .closeDiv:hover i, .scores a:hover i, .about li:hover span[class^="point"] i {
+    -webkit-animation: roll .25s 2;
+    -moz-animation: roll .25s 2;
+    -o-animation: roll .25s 2;
+    animation: roll .25s 2;
+}
+.sidebar li span.chevron {
+    width: 40px;
+}
+.sidebar li span.chevron i {
+    color:transparent;
+}
+.sidebar nav ul {
+    height: 100%;
+}
+.sidebar nav ul li {
+    font-size: 200%;
+    display: block;
+    font-weight: bold;
+}
+.sidebar nav { 
+    display: block;
+    height: 100%;
+}
+*/
+/* FROM http://stackoverflow.com/questions/7273338/how-to-vertically-align-an-image-inside-div*/
+/*
+.helper {
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+}
+.sidebar .chevron i{
+    padding-left: 1em;
+}
+*/
+
+/****************************
+*****************************
+12. Copyright Styles
+*****************************
+****************************/
+
+/*-------TAGS--------*/
+/*small { font-size: 100%; }*/
+
+/*-------CLASSES--------*/
+/*
+.autoCenter {
+    display:block;
+    margin-top: 0;
+    margin-bottom: 3px;
+    text-align:center;
+    width: auto;
+}
+*/
+
+/****************************************
+*****************************************
+13. Miscellaneous Styles - clear fix, etc
+*****************************************
+****************************************/
+
+/*MICRO-CLEARFIX by Nicolas Gallagher http://nicolasgallagher.com/micro-clearfix-hack/*/
+.cf:before, .cf:after {
+    content:"";
+    display:table;
+}
+.cf:after { clear:both; }
+
+/* For IE 6/7 (trigger hasLayout) */
+/*.cf { zoom:1; }*/
+
+/*from CSS Tricks - to change color of selected text */
+::selection { background: #869fae; /* WebKit/Blink Browsers */ }
+::-moz-selection { background: #869fae; /* Gecko Browsers */ }
+
+/* from CSS Tricks - to change color of placeholder text */
+::-webkit-input-placeholder { color: #d4dae2; }
+:-moz-placeholder { color: #d4dae2; }
+::-moz-placeholder { color: #d4dae2; }
+:-ms-input-placeholder { color: #d4dae2; }
+
+/*Adapted from Mark Senff's example http://codepen.io/senff/pen/fqmFo*/
+.closeDiv {
+	background: #de0000;
+	color: #FFFFFF;
+	cursor: pointer;
+	font-size: 30px;
+	font-weight: normal;
+	height: 33px;
+	line-height: 30px;
+	position: absolute;
+	right: 1px;
+	text-align: center;
+	top: 1px;
+	-webkit-transition: color 0.2s ease-in-out;
+	-moz-transition: color 0.2s ease-in-out;
+	-o-transition: color 0.2s ease-in-out;
+	transition: color 0.2s ease-in-out;
+	width: 40px;
+}
