@@ -21,81 +21,38 @@
                "6em","6.5em", "7em","7.5em"];
 
   
-  $('#myModal').on('click', function() {
-    endTimedTest();
+  $('#initBubbles').on('click', function() {
+    makeBubbleBackground();
   });
 
-  $('#closeTestResults').on('click', function() {
-    handleTestResults();
+  $('#closeUserMsg').on('click', function() {
+    handleUserMsg();
   });
   
-  function handleTestResults() {
-    $('#topicTestResults').addClass('hidden-xs-up');
+  function handleUserMsg() {
+    $('#userMsg').addClass('hidden-xs-up');
 
     // Send overlay to back
-    $('#cover').removeClass('coverAll');
+    $('#coverBubbles').removeClass('coverAll');
   }
   
 
-  function endTimedTest() {
-    var opName = "Addition";
-    var label = "+2";
+  function makeBubbleBackground() {
     var correct = 36;
-    var attempted = 42;
-    var missed = attempted - correct;
-    var percent = Math.round((correct/attempted) * 100);
-    var text1 = opName + ': ' + label;
-    var htmlErrors = '';
-    var errorArray = [];
-    var tblHead = 'this is the table head...';
-    var msg = 'message to highlight...';
+//    var htmlErrors = '';
+//    var errorArray = [];
+    var msg = 'highlighted message...';
 
-    /*
-     * If user had errors, use .slice to get an array of error
-     * info for mistakes made during the just completed timed
-     * test. Note that we're only displaying errors for the
-     * MOST RECENT timed test, so any earlier errors at same
-     * level (from practice or test)
-     * are not included.
-     */
-    if (missed) {
-
-      $('.errorTable').removeClass('hidden-xs-up');
-
-
-      htmlErrors = "<p>the errors would go here</p>";
-
-    // Hide error table if no errors
-    } else {
-        $('.errorTable').addClass('hidden-xs-up');
-    }
-
-    // Show results if user attempted at least one problem
-    if (attempted > 0) {
-      if (missed === 1) {
-        tblHead = '1 Error';
-      } else if (missed > 1) {
-        tblHead = missed + ' Errors';
-      }
-      $('#test_level').html(text1);
-      $('#test_correct').html("<p>Correct:" + correct + "</p><p>Attempted:" + attempted + "</p><p>Missed:" + missed + "</p>");
-      $('#topicTestResults th').empty().append(tblHead);
-      $('#topicTestResults tbody').empty().append(htmlErrors);
-      $('#topicTestResults').removeClass('hidden-xs-up');
+      $('#userMsg').removeClass('hidden-xs-up');
       document.activeElement.blur();
 
       // Bring overlay to front while displaying test results
-      $('#cover').addClass('coverAll');
+      $('#coverBubbles').addClass('coverAll');
 
-      /*
-       * Could add conditional here
-       * to vary msg
-       */
+      // Could add conditional here to vary msg
       $('#test_moveUp').empty().append(msg);
-    }
 
-    // Change sidebar highlight to 'practice'
-//    myThis.cancelTimer();
+    // Function animates bubbles (bubble count = correct)
     makeBubbles(correct, 70, '2s');
   }
 

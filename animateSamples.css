@@ -31,6 +31,109 @@
     100% { opacity: .8; }
 }
 
+/*******************************************************
+ * Flip Card
+ ******************************************************/
+
+  /*  flip animation adapted from https://davidwalsh.name/css-flip*/
+  /* entire container, keeps perspective */
+  .flip-container {
+    perspective: 1000px;
+    margin: auto;
+  }
+  .flip-container, .card {
+    width: 320px;
+    height: 450px;
+  }
+  .flipper {
+    transform-style: preserve-3d;
+    position: relative;
+  }
+  .card {
+    background-color: #203d9e;
+    border: 10px solid white;
+    border-radius: 10px;
+    color: white;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  /* flip card over*/
+  .card, .card .myText {
+    transition: 2s;
+  }
+  .card.showBack {
+    background-color: #1a7048;
+    transform: rotateY(-180deg);    
+  }
+
+  /* this flips text BACK so it remains readable
+   * even though card is flipped (use js to toggle text as needed...)*/
+  .card.showBack .myText {
+    transform: rotateY(180deg);
+  }
+  .card p {
+    border: 1px dotted white;
+  }
+  .card p, .card h5 {
+    margin: 50px auto 0 auto;
+    padding:8px;
+    text-align: center;
+    width:80%;
+  }
+.closeFlipSample {
+	background: #de0000;
+	color: #FFFFFF;
+	cursor: pointer;
+    display: block;
+	font-size: 30px;
+	font-weight: normal;
+	height: 33px;
+	line-height: 30px;
+    margin: 5px 5px 5px auto;  
+	text-align: center;
+	-webkit-transition: color 0.2s ease-in-out;
+	-moz-transition: color 0.2s ease-in-out;
+	-o-transition: color 0.2s ease-in-out;
+	transition: color 0.2s ease-in-out;
+	width: 40px;
+}
+
+/*******************************************************
+ * SPIN SHAPE
+ ******************************************************/
+
+.spin-container {
+  perspective: 1000px;
+  margin: auto;
+  width: 150px;
+  height: 150px;
+}
+.shapeToSpin {
+  width: 100px;
+  height: 100px;
+  background-color: #203d9e;
+  color: white;
+  margin: 30px auto;
+}
+.closeSpinSample {
+  background: #de0000;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: block;
+  font-size: 30px;
+  font-weight: normal;
+  height: 33px;
+  line-height: 30px;
+  margin: 5px 5px 5px auto;  
+  text-align: center;
+  -webkit-transition: color 0.2s ease-in-out;
+  -moz-transition: color 0.2s ease-in-out;
+  -o-transition: color 0.2s ease-in-out;
+  transition: color 0.2s ease-in-out;
+  width: 40px;  
+}
 
 
 

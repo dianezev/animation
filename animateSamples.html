@@ -30,32 +30,32 @@
     <div class="row justify-content-around align-items-center">
       <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
         <div class="gridBox">
-          <button type="button" id="myModal">Bubbles</button>
+          <button type="button" id="initBubbles">Bubbles</button>
         </div>
       </div>
       <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
         <div class="gridBox">
-          <button type="button">Sample 2</button>
+          <button type="button" id="initFlipCard">Flip Card</button>
         </div>
       </div>
       <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
         <div class="gridBox">
-          <button type="button">Sample 3</button>
+          <button type="button" id="initSpin">Spin</button>
         </div>
       </div>
       <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
         <div class="gridBox">
-          <button type="button">Sample 4</button>
+          <button type="button">Slide In</button>
         </div>
       </div>
       <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
         <div class="gridBox">
-          <button type="button">Sample 5</button>
+          <button type="button">Zoom Text</button>
         </div>
       </div>
       <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
         <div class="gridBox">
-          <button type="button">Sample 6</button>
+          <button type="button">Twirl Stuff</button>
         </div>
       </div>
       <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
@@ -71,21 +71,21 @@
     </div>  
   </div>
     
-</div>
+<!--</div>-->
 
 <!------------------------------------------------------------------------------------  
 This section is for BUBBLE animation. Includes overlay + bubbles + modal with message
 -------------------------------------------------------------------------------------->
   
 <!-- overlay brought to front with z-index when needed -->
-<div class="overlay" id="cover"></div>
+<div class="overlay" id="coverBubbles"></div>
     
 <!-- animated bubbles brought to front with z-index when user finishes test -->
 <div id="bubbleContainer" class="animBubbles"></div>
 
 <!-- This div hidden except when results are displayed for a timed test-->
-<div class="test hidden-xs-up" id="topicTestResults">
-    <div class="closeDiv" title="Close"><i id="closeTestResults" class="fa fa-times"></i></div>
+<div class="test hidden-xs-up" id="userMsg">
+    <div class="closeDiv" title="Close"><i id="closeUserMsg" class="fa fa-times"></i></div>
     <h4 id="test_user">Message goes here...</h4>
     <br>
     <h3 id="test_correct">more info...</h3>
@@ -94,21 +94,52 @@ This section is for BUBBLE animation. Includes overlay + bubbles + modal with me
 </div>
 
 <!------------------------------------------------------------------------------------  
-This section is for SAMPLE 2 animation. Includes...
+This section is for FLIP CARD animation.
 -------------------------------------------------------------------------------------->
-
-  
+  <div class="flip-container hidden-xs-up" id="playCard">
+    <div class="closeFlipSample" title="Close">
+      <i id="closeFlipCard" class="fa fa-times"></i>
+    </div>
+    <div class="flipper">
+      <div class="card" id="flipThis">
+        <div class="myText">
+          <p>Notice this text is still readable after card is flipped</p>
+        </div>
+        <div>
+          <p>and this text will get reversed</p>
+        </div>
+        <h5 class="myText">Click card to flip over</h5>
+      </div>
+    </div>
+  </div>
   
 <!------------------------------------------------------------------------------------  
-This section is for SAMPLE 3 animation. Includes...
+This section is for SPIN animation.
 -------------------------------------------------------------------------------------->
+  <div class="spin-container hidden-xs-up" id="playSpin">
+    <div class="closeFlipSample" title="Close">
+      <i id="closeSpin" class="fa fa-times"></i>
+    </div>
+    <div class="shapeToSpin" id="spinShape">
+      <p>blah blah blah</p>
+    </div>
+  </div>
+  
 
+  
+  
+<!---------------------------------------------------------->  
+</div>
+<!---------------------------------------------------------->  
+  
 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.0/jquery-ui.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
 <script src="bubbleScript.js"></script>
+<script src="flipCardScript.js"></script>
+<script src="spinScript.js"></script>
 
 </body>
 </html>
