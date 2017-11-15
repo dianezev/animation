@@ -1,7 +1,6 @@
 /***************************************************************************
- * Animated Card Flip Example by Diane Zevenbergen, dianezev@comcast.net
- *  (css/html code adapted from https://davidwalsh.name/css-flip)
- *
+ * SPIN transition example by Diane Zevenbergen, dianezev@comcast.net
+ * Uses transition and transform: rotate() in CSS
  ***************************************************************************/
 
 (function() {
@@ -18,7 +17,8 @@
   });
 
   // Hide example
-  $('#closeSpin').on('click', function() {
+  $('#closeSpin').on('click', function(e) {
+    e.stopPropagation();
     toggleSpinSample();
   });
 
@@ -35,12 +35,12 @@
 
   function spinStuff() {
 
-//    // Toggle class that triggers animated card flip
-//    // (optionally just use the flipForward piece if no need to flip back)
-//    if ($('#flipThis').hasClass("showBack")) {
-//      $('#flipThis').removeClass("showBack"); 
-//    } else {
-//      $('#flipThis').addClass("showBack");     
-//    }
+    // Toggle class that triggers animated card flip
+    // (optionally just use the flipForward piece if no need to flip back)
+    if ($('#spinShape').hasClass("spinIt")) {
+      $('#spinShape').removeClass("spinIt"); 
+    } else {
+      $('#spinShape').addClass("spinIt");     
+    }
   }
 })();

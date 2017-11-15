@@ -39,8 +39,6 @@
 
   function makeBubbleBackground() {
     var correct = 36;
-//    var htmlErrors = '';
-//    var errorArray = [];
     var msg = 'highlighted message...';
 
       $('#userMsg').removeClass('hidden-xs-up');
@@ -55,10 +53,6 @@
     // Function animates bubbles (bubble count = correct)
     makeBubbles(correct, 70, '2s');
   }
-
-
-
-
 
   /*
    * This function displays bubbles on the screen of various sizes & colors.

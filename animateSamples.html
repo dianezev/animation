@@ -45,12 +45,17 @@
       </div>
       <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
         <div class="gridBox">
-          <button type="button">Slide In</button>
+          <button type="button" id="initSlideIn">Slide In</button>
         </div>
       </div>
       <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
         <div class="gridBox">
-          <button type="button">Zoom Text</button>
+          <button type="button" id="initSlide">Slide &amp; Rotate</button>
+        </div>
+      </div>
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
+        <div class="gridBox">
+          <button type="button" id="initZoom">Zoom Text</button>
         </div>
       </div>
       <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
@@ -74,7 +79,7 @@
 <!--</div>-->
 
 <!------------------------------------------------------------------------------------  
-This section is for BUBBLE animation. Includes overlay + bubbles + modal with message
+BUBBLE ANIMATION: Uses @keyframes; includes overlay + bubbles + modal with message
 -------------------------------------------------------------------------------------->
   
 <!-- overlay brought to front with z-index when needed -->
@@ -94,38 +99,79 @@ This section is for BUBBLE animation. Includes overlay + bubbles + modal with me
 </div>
 
 <!------------------------------------------------------------------------------------  
-This section is for FLIP CARD animation.
+FLIP CARD TRANSITION: Uses transitions and transform
 -------------------------------------------------------------------------------------->
-  <div class="flip-container hidden-xs-up" id="playCard">
+  <div class="flip-container hidden-xs-up animateSlideDown" id="playCard">
     <div class="closeFlipSample" title="Close">
       <i id="closeFlipCard" class="fa fa-times"></i>
     </div>
     <div class="flipper">
       <div class="card" id="flipThis">
+        <h3 class="myText">Click to flip</h3>
         <div class="myText">
           <p>Notice this text is still readable after card is flipped</p>
         </div>
         <div>
           <p>and this text will get reversed</p>
         </div>
-        <h5 class="myText">Click card to flip over</h5>
       </div>
     </div>
   </div>
   
 <!------------------------------------------------------------------------------------  
-This section is for SPIN animation.
+SPIN ANIMATION
 -------------------------------------------------------------------------------------->
-  <div class="spin-container hidden-xs-up" id="playSpin">
-    <div class="closeFlipSample" title="Close">
+  <div class="spin-container hidden-xs-up animateSlideRight" id="playSpin">
+    <div class="closeSpinSample" title="Close">
       <i id="closeSpin" class="fa fa-times"></i>
     </div>
     <div class="shapeToSpin" id="spinShape">
-      <p>blah blah blah</p>
+      <p>Click</p>
     </div>
   </div>
   
+<!------------------------------------------------------------------------------------  
+SLIDE IN ANIMATION
+-------------------------------------------------------------------------------------->
+  <div class="slideIn-container hidden-xs-up animateSlideInFromLeft" id="playSlideIn">
+    <div class="slideThisIn">
+      <div class="closeSlideInSample" title="Close">
+        <i id="closeSlideIn" class="fa fa-times"></i>
+      </div>
+      <div>
+        <img src="tree.png" alt="tree" height="150" width="150">
+      </div>
+    </div>
+  </div>
 
+<!------------------------------------------------------------------------------------  
+SLIDE & ROTATE TRANSITION
+-------------------------------------------------------------------------------------->
+  <div class="slide-container hidden-xs-up" id="playSlide">
+    <div class="slideThis" id="slideIntoView">
+      <div class="closeSlideSample" title="Close">
+        <i id="closeSlide" class="fa fa-times"></i>
+      </div>
+      <div>
+        <img src="tree.png" alt="tree" height="100" width="100">
+        <p>Click to slide and rotate...</p>
+      </div>
+    </div>
+  </div>
+
+<!------------------------------------------------------------------------------------  
+ZOOM TRANSITION
+-------------------------------------------------------------------------------------->
+  <div class="zoom-container hidden-xs-up" id="playZoom">
+    <div class="zoomThis" id="zoomIntoView">
+      <div class="closeZoomSample" title="Close">
+        <i id="closeZoom" class="fa fa-times"></i>
+      </div>
+      <div>
+        <p>Click to zoom text...</p>
+      </div>
+    </div>
+  </div>
   
   
 <!---------------------------------------------------------->  
@@ -140,6 +186,9 @@ This section is for SPIN animation.
 <script src="bubbleScript.js"></script>
 <script src="flipCardScript.js"></script>
 <script src="spinScript.js"></script>
+<script src="slideInScript.js"></script>
+<script src="zoomScript.js"></script>
+<script src="slideScript.js"></script>
 
 </body>
 </html>

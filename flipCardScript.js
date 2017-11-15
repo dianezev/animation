@@ -1,5 +1,6 @@
 /***************************************************************************
- * Animated Card Flip Example by Diane Zevenbergen, dianezev@comcast.net
+ * FLIP CARD TRANSITION: Uses transitions and transform: rotateY in CSS
+ * by Diane Zevenbergen, dianezev@comcast.net
  *  (css/html code adapted from https://davidwalsh.name/css-flip)
  *
  ***************************************************************************/
@@ -12,13 +13,14 @@
     toggleFlipCard();
   });
  
-  // Run animation example
+  // Run transition example
   $('#playCard').on('click', function() {
     flipCardOver();
   });
   
   // Hide example
-  $('#closeFlipCard').on('click', function() {
+  $('#closeFlipCard').on('click', function(e) {
+    e.stopPropagation();
     toggleFlipCard();
   });
 
@@ -27,6 +29,7 @@
     
     // Toggle class that displays/hides card
     if ($('#playCard').hasClass("hidden-xs-up")) {
+      $('#flipThis').removeClass("showBack"); 
       $('#playCard').removeClass("hidden-xs-up"); 
     } else {
       $('#playCard').addClass("hidden-xs-up");     
@@ -35,8 +38,7 @@
 
   function flipCardOver() {
 
-    // Toggle class that triggers animated card flip
-    // (optionally just use the flipForward piece if no need to flip back)
+    // Toggle class that triggers card flip
     if ($('#flipThis').hasClass("showBack")) {
       $('#flipThis').removeClass("showBack"); 
     } else {
