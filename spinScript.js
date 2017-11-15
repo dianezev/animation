@@ -12,7 +12,7 @@
   });
  
   // Run animation example
-  $('#playSpin').on('click', function() {
+  $('#spinShape').on('click', function() {
     spinStuff();
   });
 

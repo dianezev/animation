@@ -28,9 +28,10 @@
   
   <div class="container">
     <div class="row justify-content-around align-items-center">
+<!--      <div class="col-6 col-sm-4 col-md-3 col-lg-2 col-xl-1">-->
       <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
         <div class="gridBox">
-          <button type="button" id="initBubbles">Bubbles</button>
+          <button class="wobble" type="button" id="initBubbles">Bubbles</button>
         </div>
       </div>
       <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
@@ -90,7 +91,7 @@ BUBBLE ANIMATION: Uses @keyframes; includes overlay + bubbles + modal with messa
 
 <!-- This div hidden except when results are displayed for a timed test-->
 <div class="test hidden-xs-up" id="userMsg">
-    <div class="closeDiv" title="Close"><i id="closeUserMsg" class="fa fa-times"></i></div>
+    <div id="closeUserMsg" class="closeDiv" title="Close"><i class="fa fa-times"></i></div>
     <h4 id="test_user">Message goes here...</h4>
     <br>
     <h3 id="test_correct">more info...</h3>
@@ -102,8 +103,8 @@ BUBBLE ANIMATION: Uses @keyframes; includes overlay + bubbles + modal with messa
 FLIP CARD TRANSITION: Uses transitions and transform
 -------------------------------------------------------------------------------------->
   <div class="flip-container hidden-xs-up animateSlideDown" id="playCard">
-    <div class="closeFlipSample" title="Close">
-      <i id="closeFlipCard" class="fa fa-times"></i>
+    <div id="closeFlipCard" class="closeFlipSample" title="Close">
+      <i class="fa fa-times"></i>
     </div>
     <div class="flipper">
       <div class="card" id="flipThis">
@@ -122,8 +123,8 @@ FLIP CARD TRANSITION: Uses transitions and transform
 SPIN ANIMATION
 -------------------------------------------------------------------------------------->
   <div class="spin-container hidden-xs-up animateSlideRight" id="playSpin">
-    <div class="closeSpinSample" title="Close">
-      <i id="closeSpin" class="fa fa-times"></i>
+    <div id="closeSpin" class="closeSpinSample" title="Close">
+      <i class="fa fa-times"></i>
     </div>
     <div class="shapeToSpin" id="spinShape">
       <p>Click</p>
@@ -135,11 +136,11 @@ SLIDE IN ANIMATION
 -------------------------------------------------------------------------------------->
   <div class="slideIn-container hidden-xs-up animateSlideInFromLeft" id="playSlideIn">
     <div class="slideThisIn">
-      <div class="closeSlideInSample" title="Close">
-        <i id="closeSlideIn" class="fa fa-times"></i>
+      <div id="closeSlideIn" class="closeSlideInSample" title="Close">
+        <i class="fa fa-times"></i>
       </div>
       <div>
-        <img src="tree.png" alt="tree" height="150" width="150">
+        <img src="world.png" alt="world" height="150" width="150">
       </div>
     </div>
   </div>
@@ -149,8 +150,8 @@ SLIDE & ROTATE TRANSITION
 -------------------------------------------------------------------------------------->
   <div class="slide-container hidden-xs-up" id="playSlide">
     <div class="slideThis" id="slideIntoView">
-      <div class="closeSlideSample" title="Close">
-        <i id="closeSlide" class="fa fa-times"></i>
+      <div id="closeSlide" class="closeSlideSample" title="Close">
+        <i class="fa fa-times"></i>
       </div>
       <div>
         <img src="tree.png" alt="tree" height="100" width="100">
@@ -164,8 +165,8 @@ ZOOM TRANSITION
 -------------------------------------------------------------------------------------->
   <div class="zoom-container hidden-xs-up" id="playZoom">
     <div class="zoomThis" id="zoomIntoView">
-      <div class="closeZoomSample" title="Close">
-        <i id="closeZoom" class="fa fa-times"></i>
+      <div id="closeZoom" class="closeZoomSample" title="Close">
+        <i class="fa fa-times"></i>
       </div>
       <div>
         <p>Click to zoom text...</p>

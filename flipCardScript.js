@@ -14,7 +14,7 @@
   });
  
   // Run transition example
-  $('#playCard').on('click', function() {
+  $('#flipThis').on('click', function() {
     flipCardOver();
   });
   

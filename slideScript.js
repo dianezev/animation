@@ -13,7 +13,7 @@
  
  
   // Run transition example
-  $('#playSlide').on('click', function() {
+  $('#slideIntoView').on('click', function() {
     slideStuff();
   });
 

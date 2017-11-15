@@ -128,7 +128,7 @@
 
   /* flip card over*/
   .card, .card .myText {
-    transition: 2s;
+    transition: 1.5s;
   }
   .card.showBack {
     background-color: #c10d59;
@@ -223,7 +223,7 @@
   }}
 
 .slideThisIn {
-  background-color: white;
+  background-color: transparent;
   height: 220px;
   margin: auto;
   text-align: center;
@@ -295,7 +295,6 @@
 .zoomThis {
   background-color: transparent;
   color: white;
-  cursor: pointer;
   margin: auto;
   text-align: center;
   -webkit-transition: all 0.8s ease-in-out;
@@ -307,6 +306,7 @@
   font-size: 7vw;
 }
 .zoomThis p:hover {
+  cursor: pointer;
   text-decoration: underline;
 }
 .zoomThis p {
@@ -328,30 +328,30 @@
 
 
 
-/*******************************************************
- * OTHER
- ******************************************************/
+/*****************************************************************
+ * OTHER - can use these classes with hover or with js to activate
+ ****************************************************************/
 
 /*
-.rotateThisFadeOut {
+.rotateAndFade {
     -webkit-animation: shadeInOut 2s 4, roll .5s 16;
     -moz-animation: shadeInOut 2s 4, roll .5s 16;
     -o-animation: shadeInOut 2s 4, roll .5s 16;
     animation: shadeInOut 2s 4, roll .5s 16;
 }
-.fadeThisInAndOut {
+.fadeInAndOut80 {
     -webkit-animation: shadeInOut 2s 4;
     -moz-animation: shadeInOut 2s 4;
     -o-animation: shadeInOut 2s 4;
     animation: shadeInOut 2s 4;
 }
-.startOptions {
+.fadeIn100 {
     -webkit-animation: shadeIn 2s 1;
     -moz-animation: shadeIn 2s 1;
     -o-animation: shadeIn 2s 1;
     animation: shadeIn 2s 1;
 }
-.fadeInAndOut {
+.fadeInAndOut50 {
     -webkit-animation: steadyInOut 10s 30;
     -moz-animation: steadyInOut 10s 30;
     -o-animation: steadyInOut 10s 30;
@@ -369,11 +369,49 @@
     -o-animation: tinyRoll 1s 150;
     animation: tinyRoll 1s 150;
 }
-
 */
 
 
 
+
+@keyframes roll {
+    0%, 100% { transform: rotate(-6deg); }
+    50% { transform: rotate(6deg); }
+}
+@keyframes littleRoll {
+    0%, 100% { transform: rotate(-3deg); }
+    50% { transform: rotate(3deg); }
+}
+@keyframes tinyRoll {
+    0%, 100% { transform: rotate(-1deg); }
+    50% { transform: rotate(1deg); }
+}
+@keyframes slipFromRight {
+    0% {
+        transform: translate(300px, 0);    
+        font-size: 0%;
+    }
+    100% { transform: translate(0, 0); }
+}
+@keyframes slipFromLeft {
+    0% {
+        transform: translate(-100vw, 0);    
+        font-size: 0%;
+    }
+    100% { transform: translate(0, 0); }
+}
+@keyframes shadeInOut {
+    0%, 100% { opacity: 0; }
+    80% { opacity: .8; }
+}
+@keyframes steadyInOut {
+    0%, 100% { opacity: .05; }
+    50% { opacity: .9; }
+}
+@keyframes shadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
 /***********************************************
 ************************************************
 * Universal/General Styles for start page
@@ -446,16 +484,17 @@ p { margin:0; }
   border: 1px solid white;
 }
 .gridBox button:hover {
-    -webkit-animation: tinyRoll .25s 2;
-    -moz-animation: tinyRoll .25s 2;
-    -o-animation: tinyRoll .25s 2;
-    animation: tinyRoll .25s 2;
+    -webkit-animation: littleRoll .25s 8;
+    -moz-animation: littleRoll .25s 8;
+    -o-animation: littleRoll .25s 8;
+    animation: littleRoll .25s 8;
 }
 
 .start2 {
     margin: 0 auto;
     width: 80%;
 }
+
 
 /*
 .hide { display: none; }

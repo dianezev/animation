@@ -13,7 +13,7 @@
  
  
   // Run transition example
-  $('#playZoom').on('click', function() {
+  $('#zoomIntoView p').on('click', function() {
     zoomStuff();
   });
 
