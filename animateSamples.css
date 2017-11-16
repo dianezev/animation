@@ -504,7 +504,7 @@ body {
 }
 body, html { height: 100%; }
 body, button, .getStarted input, .btn, .sidebar, .scores {
-    font-family: 'Short Stack', cursive;
+    font-family: 'Quicksand', sans-serif;
 }
 p { margin:0; }
 
@@ -516,7 +516,7 @@ p { margin:0; }
     overflow-y: scroll;
     top: 0; 
     bottom: 0;
-    padding-top: 5vh;
+/*    padding-top: 5vh;*/
 }
 .backgroundShade {
     background-color: #090A3B;
@@ -546,7 +546,7 @@ p { margin:0; }
   height: 4em;
 }
 .clickDiv {
-  border: 1px solid white;
+/*  border: 1px solid white;*/
 }
 
 .clickDiv:nth-child(7n) {
@@ -583,11 +583,10 @@ p { margin:0; }
 }
 .gridBox:hover {
   cursor: pointer;
-  font-weight: 600;
-  -webkit-animation: littleRoll .25s 8;
-  -moz-animation: littleRoll .25s 8;
-  -o-animation: littleRoll .25s 8;
-  animation: littleRoll .25s 8;
+  -webkit-animation: roll .4s 8;
+  -moz-animation: roll .4s 8;
+  -o-animation: roll .4s 8;
+  animation: roll .4s 8;
 }
 
 .start2 {
