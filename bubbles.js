@@ -2,15 +2,12 @@
  * Animated Bubbles Example by Diane Zevenbergen, dianezev@comcast.net
  *
  * This code displays a message modal with animated bubbles in background.
- * Note that the number of bubbles is dependent on the value of 'correct'
- * which is hardcoded for this example.
+ * Note that the number of bubbles is dependent on the value of 'bubbleCount'
  ***************************************************************************/
 
 (function() {
   'use strict';   
 
-  var hoverInput = false;
-  var lastOption = '';
   var bubbleTimer = -1;
   var COLORS = ["CornflowerBlue", "DarkMagenta", "LimeGreen", "OrangeRed",
                 "SeaGreen", "Yellow","RoyalBlue", "Coral", "Crimson",
@@ -38,7 +35,7 @@
   
 
   function makeBubbleBackground() {
-    var correct = 36;
+    var bubbleCount = 36;
     var msg = 'highlighted message...';
 
       $('#userMsg').removeClass('hidden-xs-up');
@@ -50,8 +47,8 @@
       // Could add conditional here to vary msg
       $('#test_moveUp').empty().append(msg);
 
-    // Function animates bubbles (bubble count = correct)
-    makeBubbles(correct, 70, '2s');
+    // Function animates bubbles (bubble count = bubbleCount)
+    makeBubbles(bubbleCount, 70, '2s');
   }
 
   /*
@@ -59,9 +56,9 @@
    * 'span' indicates MS time that passes from one bubble to next and 'duration'
    * is the # seconds (as string, i.e. '2s') that passes before all bubbles are
    * cleared from screen.  Note that 'duration' should exceed
-   * 'span' * 'bubbleNum' otherwise not all bubbles will have time to display.
+   * 'span' * 'bubbleCount' otherwise not all bubbles will have time to display.
    */
-  function makeBubbles(bubbleNum, span, duration) {
+  function makeBubbles(bubbleCount, span, duration) {
     var animString = 'bubbles ' + duration + ' 1';
     var i = 0;
     var numSizes = SIZES.length;
@@ -78,7 +75,7 @@
     // Animates bubble, various sizes/colors
     function bubbleFlash() {
 
-      if (i < bubbleNum) {
+      if (i < bubbleCount) {
 
         // Add a div for a bubble
         if ($('#bubbleContainer').is(':empty')){
