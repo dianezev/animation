@@ -28,52 +28,92 @@
   
   <div class="container">
     <div class="row justify-content-around align-items-center">
-<!--      <div class="col-6 col-sm-4 col-md-3 col-lg-2 col-xl-1">-->
-      <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
-        <div class="gridBox">
-          <button class="wobble" type="button" id="initBubbles">Bubbles</button>
+
+      
+      <div class="clickDiv col-6 col-sm-4 col-md-3 col-lg-2 col-xl-1">
+        <div id="initBubbles" class="gridBox">
+          <div class="centerAll">
+            <p>Bubbles</p>
+          </div>
         </div>
       </div>
-      <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
-        <div class="gridBox">
-          <button type="button" id="initFlipCard">Flip Card</button>
+      <div class="clickDiv col-6 col-sm-4 col-md-3 col-lg-2 col-xl-1">
+        <div id="initFlipCard" class="gridBox">
+          <div class="centerAll">
+            <p>Flip Card</p>
+          </div>
         </div>
       </div>
-      <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
-        <div class="gridBox">
-          <button type="button" id="initSpin">Spin</button>
+      <div class="clickDiv col-6 col-sm-4 col-md-3 col-lg-2 col-xl-1">
+        <div id="initSpin" class="gridBox">
+          <div class="centerAll">
+            <p>Spin</p>
+          </div>
         </div>
       </div>
-      <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
-        <div class="gridBox">
-          <button type="button" id="initSlideIn">Slide In</button>
+      <div class="clickDiv col-6 col-sm-4 col-md-3 col-lg-2 col-xl-1">
+        <div id="initSlideIn" class="gridBox">
+          <div class="centerAll">
+            <p>Slide In</p>
+          </div>
         </div>
       </div>
-      <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
-        <div class="gridBox">
-          <button type="button" id="initSlide">Slide &amp; Rotate</button>
+      <div class="clickDiv col-6 col-sm-4 col-md-3 col-lg-2 col-xl-1">
+        <div id="initSlide" class="gridBox">
+          <div class="centerAll">
+            <p>Slide &amp; Rotate</p>
+          </div>
         </div>
       </div>
-      <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
-        <div class="gridBox">
-          <button type="button" id="initZoom">Zoom Text</button>
+      <div class="clickDiv col-6 col-sm-4 col-md-3 col-lg-2 col-xl-1">
+        <div id="initZoom" class="gridBox">
+          <div class="centerAll">
+            <p>Zoom Text</p>
+          </div>
         </div>
       </div>
-      <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
-        <div class="gridBox">
-          <button type="button">Twirl Stuff</button>
+      <div class="clickDiv col-6 col-sm-4 col-md-3 col-lg-2 col-xl-1">
+        <div id="initMultiSpin"  class="gridBox">
+          <div class="centerAll">
+            <p>Multi Spin</p>
+          </div>
         </div>
       </div>
-      <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
+      <div class="clickDiv col-6 col-sm-4 col-md-3 col-lg-2 col-xl-1">
         <div class="gridBox">
-          <button type="button">Sample 7</button>
+          <div class="centerAll">
+            <p>Sample</p>
+          </div>
         </div>
       </div>
-      <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
+      <div class="clickDiv col-6 col-sm-4 col-md-3 col-lg-2 col-xl-1">
         <div class="gridBox">
-          <button type="button">Sample 8</button>
+          <div class="centerAll">
+            <p>Sample</p>
+          </div>
         </div>
       </div>
+      <div class="clickDiv col-6 col-sm-4 col-md-3 col-lg-2 col-xl-1">
+        <div class="gridBox">
+          <div class="centerAll">
+            <p>Sample</p>
+          </div>
+        </div>
+      </div>
+      <div class="clickDiv col-6 col-sm-4 col-md-3 col-lg-2 col-xl-1">
+        <div class="gridBox">
+          <div class="centerAll">
+            <p>Sample</p>
+          </div>
+        </div>
+      </div>
+      <div class="clickDiv col-6 col-sm-4 col-md-3 col-lg-2 col-xl-1">
+        <div class="gridBox">
+          <div class="centerAll">
+            <p>Sample</p>
+          </div>
+        </div>
+      </div>      
     </div>  
   </div>
     
@@ -120,9 +160,9 @@ FLIP CARD TRANSITION: Uses transitions and transform
   </div>
   
 <!------------------------------------------------------------------------------------  
-SPIN ANIMATION
+SPIN TRANSITION uses transform: rotate()
 -------------------------------------------------------------------------------------->
-  <div class="spin-container hidden-xs-up animateSlideRight" id="playSpin">
+  <div class="spin-container hidden-xs-up" id="playSpin">
     <div id="closeSpin" class="closeSpinSample" title="Close">
       <i class="fa fa-times"></i>
     </div>
@@ -174,6 +214,30 @@ ZOOM TRANSITION
     </div>
   </div>
   
+<!------------------------------------------------------------------------------------  
+MULTI-SPIN TRANSITION uses transform: rotate()
+-------------------------------------------------------------------------------------->
+  <div class="multiSpin-container hidden-xs-up" id="playMultiSpin">
+    <div id="closeMultiSpin" class="closeMultiSpinSample" title="Close">
+      <i class="fa fa-times"></i>
+    </div>
+    <div id="multiSpinShape">
+      <div class="multiShape">
+      </div>
+      <div class="multiShape">
+      </div>
+      <div class="multiShape">
+        <p>Click</p>
+      </div>
+      <div class="multiShape">
+      </div>
+      <div class="multiShape">
+      </div>
+    </div>
+  </div>
+  
+
+  
   
 <!---------------------------------------------------------->  
 </div>
@@ -190,6 +254,7 @@ ZOOM TRANSITION
 <script src="slideInScript.js"></script>
 <script src="zoomScript.js"></script>
 <script src="slideScript.js"></script>
+<script src="multiSpinScript.js"></script>
 
 </body>
 </html>

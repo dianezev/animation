@@ -4,6 +4,16 @@
  * copy & paste a portion of the code below to work with one animation/transition
  *************************************************************************************/
 
+/*Use color variables clickable divs*/
+:root {
+  --color1: #4C427E;
+  --color2: #8594AC;
+  --color3: #357369;
+  --color4: #5E7291;
+  --color5: #7CA59E;
+  --color6: #6D6598;
+  --color7: #558B82;
+}
 
 /*******************************************************
  * BUBBLES
@@ -106,7 +116,7 @@
   .flip-container {
     height: 450px;
     perspective: 1000px;
-    margin: auto;
+    margin: 4vh auto;
   }
   .flip-container, .card {
     width: 280px;
@@ -184,7 +194,7 @@
 
 .spin-container {
   perspective: 1000px;
-  margin: auto;
+  margin: 4vh auto;
   width: 150px;
   height: 150px;
 }
@@ -225,7 +235,7 @@
 .slideThisIn {
   background-color: transparent;
   height: 220px;
-  margin: auto;
+  margin: 4vh auto;
   text-align: center;
   width: 300px;
 }
@@ -249,6 +259,9 @@
 /*********************************************************************
  * SLIDE AND ROTATE: uses transition & transform
  ********************************************************************/
+.slide-container {
+  margin: 4vh auto;
+}
 .slideThis {
   color: #2e8da3;
   font-size: 20px;
@@ -295,7 +308,7 @@
 .zoomThis {
   background-color: transparent;
   color: white;
-  margin: auto;
+  margin: 4vh auto;
   text-align: center;
   -webkit-transition: all 0.8s ease-in-out;
   -moz-transition: all 0.8s ease-in-out;
@@ -322,6 +335,65 @@
   height: 33px;
   line-height: 30px;
   margin: 15px auto 5px auto;  
+  text-align: center;
+  width: 40px;  
+}
+
+/*******************************************************
+ * MULTI-SPIN SHAPE: uses transition and transform: rotate()
+ ******************************************************/
+
+.multiShape {
+  width: 17%;
+  height: 20vh;
+  color: white;
+  margin: 1%;
+  transition: 4s;
+  text-align: center;
+  display: inline-block;
+  vertical-align: middle;
+}
+.multiShape p {
+  padding: 1em;
+}
+.multiShape:nth-child(1) {
+  background-color: var(--color1);
+}
+.multiShape:nth-child(2) {
+  background-color: var(--color3);
+}
+.multiShape:nth-child(3) {
+  background-color: var(--color2);
+}
+.multiShape:nth-child(4) {
+  background-color: var(--color3);
+}
+.multiShape:nth-child(5) {
+  background-color: var(--color1);
+}
+.multiShape.spinIt {
+  transform: rotate(720deg);
+}
+
+.multiSpin-container {
+  perspective: 1000px;
+  margin: 4vh auto;
+  width: 60vw;
+  height: 150px;
+}
+.multiShape:hover {
+  cursor: pointer;
+}
+.closeMultiSpinSample {
+  background: #de0000;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: block;
+  font-size: 30px;
+  font-weight: normal;
+  height: 33px;
+  line-height: 30px;
+  margin: 10px auto;  
   text-align: center;
   width: 40px;  
 }
@@ -434,9 +506,6 @@ body, html { height: 100%; }
 body, button, .getStarted input, .btn, .sidebar, .scores {
     font-family: 'Short Stack', cursive;
 }
-button {
-  color: white;
-}
 p { margin:0; }
 
 .backgroundImg {
@@ -473,21 +542,52 @@ p { margin:0; }
     height: .9em;
 }
 .gridBox {
-  margin:10%;
+  display:flex;
+  height: 4em;
 }
-.gridBox button {
-  color: white;
-  background-color: #2e2e38;
-  width: 100%;
-  padding: 4%;
-  border-radius: 5px;
+.clickDiv {
   border: 1px solid white;
 }
-.gridBox button:hover {
-    -webkit-animation: littleRoll .25s 8;
-    -moz-animation: littleRoll .25s 8;
-    -o-animation: littleRoll .25s 8;
-    animation: littleRoll .25s 8;
+
+.clickDiv:nth-child(7n) {
+  background-color: var(--color7);
+}
+.clickDiv:nth-child(7n + 1) {
+  background-color: var(--color1);
+}
+.clickDiv:nth-child(7n + 2) {
+  background-color: var(--color2);
+}
+.clickDiv:nth-child(7n + 3) {
+  background-color: var(--color3);
+}
+.clickDiv:nth-child(7n + 4) {
+  background-color: var(--color4);
+}
+.clickDiv:nth-child(7n + 5) {
+  background-color: var(--color5);
+}
+.clickDiv:nth-child(7n + 6) {
+  background-color: var(--color6);
+}
+
+
+
+.centerAll {
+  align-self: center;
+  flex:1;  
+}
+.gridBox p {
+  color: white;
+  text-align: center;
+}
+.gridBox:hover {
+  cursor: pointer;
+  font-weight: 600;
+  -webkit-animation: littleRoll .25s 8;
+  -moz-animation: littleRoll .25s 8;
+  -o-animation: littleRoll .25s 8;
+  animation: littleRoll .25s 8;
 }
 
 .start2 {
