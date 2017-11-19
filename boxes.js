@@ -12,8 +12,7 @@
   var boxTimer = -1;
   var COLORS = ["#d31b1b", "#fa7808", "#ffff3a", "#27be27",
                 "#3333b2", "#be32be"];
-  var SIZES = ["3em","3.5em","4em","4.5em","5em","5.5em",
-               "6em","6.5em", "7em","7.5em"];
+  var SIZES = ["1em", "1.5em","2em","2.5em","3em","3.5em","4em","4.5em","5em","5.5em"];
   
   $('#initBoxes').on('click', function() {
     makeBoxBackground();
@@ -32,7 +31,7 @@
   
 
   function makeBoxBackground() {
-    var boxCount = 36;
+    var boxCount = 150;
     var msg = 'highlighted message...';
 
       $('#userMsg2').removeClass('hidden-xs-up');
@@ -45,7 +44,7 @@
       $('#msg_moveUp').empty().append(msg);
 
     // Function animates boxes
-    makeBoxes(boxCount, 70, '2s');
+    makeBoxes(boxCount, 50, '2s');
   }
 
   /*
